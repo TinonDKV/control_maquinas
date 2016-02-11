@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : maquinas.xml
+    Description:
+        Estructura de la tabla maquinas.
+-->
+<tabla>
+
+    <columna>
+        <nombre>id_maquina</nombre>
+        <tipo>integer</tipo>
+        <nulo>NO</nulo> 
+        <defecto>nextval('maquinas_id_maquina_seq'::regclass)</defecto>
+    </columna>
+
+    <columna>
+        <nombre>codcliente</nombre>
+        <tipo>character varying(6)</tipo>
+        <nulo>NO</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>nombre_cliente</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>ubicacion</nombre>
+        <tipo>character varying(100)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>numero_maquina</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>contrato</nombre>
+        <tipo>character varying(4)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>alquilada</nombre>
+        <tipo>character varying(4)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>equipo</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>marca</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>modelo</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>numero_serie</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>costo_copia_negro</nombre>
+        <tipo>character varying(6)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>costo_copia_color</nombre>
+        <tipo>character varying(6)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>costo_copia_especial</nombre>
+        <tipo>character varying(6)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>como_leer_contador</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>email</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+    <columna>
+        <nombre>notas</nombre>
+        <tipo>text</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+
+
+    <restriccion>
+        <nombre>maquinas_pkey</nombre>
+        <consulta>PRIMARY KEY (id_maquina)</consulta>
+    </restriccion>
+    
+    
+</tabla>
