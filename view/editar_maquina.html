@@ -37,8 +37,8 @@ function permutardisplay(cual) {
     <div class="form-group">
         <div class="container">
                <div class="form-group">
-                    <input type="hidden" name="codcliente" value="{$fsc->maquina_cliente->codcliente}"/>
-                    <input type="hidden" name="codcliente" value="{$fsc->maquina_cliente->nombre_cliente}"/>
+                    <input type="hidden" name="codigocliente" value="{$fsc->maquina_cliente->codcliente}"/>
+                    <input type="hidden" name="nombrecliente" value="{$fsc->maquina_cliente->nombre_cliente}"/>
                     
                    
                     <input type="hidden" name="id" value="{$fsc->maquina_cliente->id_maquina}"/>
@@ -155,7 +155,7 @@ function permutardisplay(cual) {
                       </select>                 
                   </div>
                   </div>
-    <input type="hidden" name="id" value="{$fsc->maquina_cliente->id_maquina}"/>
+    <input type="hidden" name="id_maq" value="{$fsc->maquina_cliente->id_maquina}"/>
                   <div class="modal-footer">
                 <a href=" index.php?page=listado_maquinas_cliente&cod={$fsc->maquina_cliente->codcliente}" class="btn btn-sm btn-default">
             <span class="glyphicon glyphicon-arrow-left"></span>

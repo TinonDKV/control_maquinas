@@ -63,7 +63,7 @@ class editar_maquina extends fs_controller {
           
           $this->maquina_cliente->id_maquina= $_POST['id'];
           $this->maquina_cliente->ubicacion= $_POST['ubicacion'];
-          $this->maquina_cliente->codcliente= $_POST['codcliente'];
+          $this->maquina_cliente->codcliente= $_POST['codigocliente'];
           //$this->equipo->nombre_cliente= $_POST['nombrecliente'];
           $this->maquina_cliente->equipo= $_POST['equipo'];
           $this->maquina_cliente->marca= $_POST['marca'];
@@ -92,7 +92,7 @@ class editar_maquina extends fs_controller {
            $this->cliente = $this->cliente->get($_POST['cliente_id']);
            $this->equipo = new maquinas();
               
-           $this->maquina_cliente =  $this->equipo->get($_POST['id']);
+           $this->maquina_cliente =  $this->equipo->get($_POST['id_maq']);
            
            $this->maquina_cliente->codcliente= $_POST['cliente_id'];
           // echo $this->maquina_cliente->codcliente;
