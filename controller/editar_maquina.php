@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 require_model('maquinas.php');
+require_model('cliente.php');
 /**
  * Description of editar_maquina
  *
@@ -13,26 +14,30 @@ require_model('maquinas.php');
  */
 class editar_maquina extends fs_controller {
     
-    
+    public $cliente;
     public $maquina_cliente;
     public $equipo;
-    
+   
+       
     public function __construct() {
         parent::__construct(__CLASS__, 'Maquinas cliente', 'Utilidades',FALSE,FALSE,FALSE);
     }
 
     protected function private_core(){
         
+        
+          
                     
           if(isset($_GET['id_maquina'])){ ///Cargar los datos
               $this->equipo = new maquinas();
               
               $this->maquina_cliente =  $this->equipo->get($_GET['id_maquina']);
-              
+               
              
           }
           if( isset($_POST['numero_serie'])){  ///Editar maquina
               $this->equipo = new maquinas();
+               
               
               $this->maquina_cliente =  $this->equipo->get($_POST['id']);
               
@@ -82,6 +87,27 @@ class editar_maquina extends fs_controller {
                 }
             }
       }
+       if(isset($_POST['cliente_id'])){
+           $this->cliente = new cliente();
+           $this->cliente = $this->cliente->get($_POST['cliente_id']);
+           $this->equipo = new maquinas();
+              
+           $this->maquina_cliente =  $this->equipo->get($_POST['id']);
+           
+           $this->maquina_cliente->codcliente= $_POST['cliente_id'];
+          // echo $this->maquina_cliente->codcliente;
+           $this->maquina_cliente->nombre_cliente = $this->cliente->razonsocial;
+          // echo $this->maquina_cliente->nombre_cliente;
+           if ($this->maquina_cliente->save())
+                {
+                    $this->new_message('Datos guardados correctamante');
+                    header("location: index.php?page=listado_maquinas_cliente&cod=".$this->maquina_cliente->codcliente);                    
+                }
+                else
+                {
+                    $this->new_error_msg('Error al Guardar');
+                }
+       } 
      
     } 
     public function listar_dispositivos(){
@@ -110,4 +136,12 @@ class editar_maquina extends fs_controller {
 
       return $marca;
   }
+   public function lista_clientes(){
+          
+          $this->cliente = new cliente();
+          $lista_clientes =$this->cliente->all_full();
+          
+          return $lista_clientes;
+          
+      }
  }   

@@ -1,12 +1,23 @@
 {include="header"}
-
+<script>
+function permutardisplay(cual) {
+  // en una variable, guardo la etiqueta
+  var micontenedor = document.getElementById(cual);
+  // uso una condición; le pregunto ¿esa etiqueta es visible?
+  if (micontenedor.style.display == "block") {
+    // si la respuesta es SI (true) le cambio la propiedad y la oculto
+    micontenedor.style.display = "none";
+  } else {
+    // en caso contrario, como la respuesta es NO (false) le cambio la propiedad y la hago visible
+    micontenedor.style.display = "block";
+  }
+}
+</script>
 
 <div class="container-fluid" style="margin-top: 10px; margin-bottom: 10px;">
    <div class="row">
       <div class="col-sm-3 col-xs-3">
-         <a href="{$fsc->url()}" class="btn btn-sm btn-default" title="Recarga la página">
-            <span class="glyphicon glyphicon-refresh"></span>
-         </a>
+         
            <a href=" index.php?page=listado_maquinas_cliente&cod={$fsc->maquina_cliente->codcliente}" class="btn btn-sm btn-default">
             <span class="glyphicon glyphicon-arrow-left"></span>
             <span class="hidden-xs">&nbsp; Volver</span>
@@ -27,6 +38,9 @@
         <div class="container">
                <div class="form-group">
                     <input type="hidden" name="codcliente" value="{$fsc->maquina_cliente->codcliente}"/>
+                    <input type="hidden" name="codcliente" value="{$fsc->maquina_cliente->nombre_cliente}"/>
+                    
+                   
                     <input type="hidden" name="id" value="{$fsc->maquina_cliente->id_maquina}"/>
                     <label class="col-sm-2 control-label"></label>
                  
@@ -123,5 +137,37 @@
             </div>
      </div>     
 </form>
-
+<div class="container" style="margin-top: 10px; margin-bottom: 10px;">
+   <div class="row">
+ <a href="javascript:permutardisplay('cual');"> click para abrir/cerrar cambiar de dueño </a>
+<div id="cual" style="display:none;">
+    
+    <label class="col-sm-12 control-label"><h4>Opere con cuidado si pulsa el botón de guardar de color naranja asociará esta maquina al cliente del cuadro.</h4></label>
+<form class="form-horizontal" role="form" name="" action="{$fsc->url()}" method="post">
+                    <div class="col-md-4">
+                  <div class="form-group">
+                     <select name="cliente_id" class="form-control">
+                          <option value="">Ninguno</option>
+                          <option value="">--------</option>
+                          {loop="$fsc->lista_clientes()"}
+                          <option value="{$value->codcliente}"{if="$fsc->maquina_cliente->nombre_cliente==$value->nombre"} selected {/if}>{$value->nombre}</option>
+                          {/loop}
+                      </select>                 
+                  </div>
+                  </div>
+    <input type="hidden" name="id" value="{$fsc->maquina_cliente->id_maquina}"/>
+                  <div class="modal-footer">
+                <a href=" index.php?page=listado_maquinas_cliente&cod={$fsc->maquina_cliente->codcliente}" class="btn btn-sm btn-default">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            <span class="hidden-xs">&nbsp; Volver</span>
+         </a>
+               <button class="btn btn-sm btn-warning" type="submit">
+                  <span class="glyphicon glyphicon-floppy-disk"></span> &nbsp; Guardar
+               </button>
+            </div>
+   
+</form>
+</div>
+   </div>
+</div>
    {include="footer"}
