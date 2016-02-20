@@ -95,6 +95,7 @@ class listado_maquinas_cliente extends fs_controller {
           $this->maquinas->contrato= $contratada;
           $this->maquinas->alquilada= $alquiler;
           $this->maquinas->numero_serie= $_POST['numero_serie'];
+          $this->maquinas->contacto= $_POST['contacto'];
           $this->maquinas->costo_copia_negro= $_POST['costo_copia_negro'];
           $this->maquinas->costo_copia_color= $_POST['costo_copia_color'];
           $this->maquinas->notas= $_POST['notas'];

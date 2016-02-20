@@ -74,6 +74,12 @@
     </columna>
 
     <columna>
+        <nombre>contacto</nombre>
+        <tipo>character varying(150)</tipo>
+        <nulo>YES</nulo> 
+    </columna>
+    
+    <columna>
         <nombre>costo_copia_negro</nombre>
         <tipo>character varying(6)</tipo>
         <nulo>YES</nulo> 

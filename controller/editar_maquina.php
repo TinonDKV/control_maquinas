@@ -71,6 +71,7 @@ class editar_maquina extends fs_controller {
           $this->maquina_cliente->contrato= $contratada;
           $this->maquina_cliente->alquilada= $alquiler;
           $this->maquina_cliente->numero_serie= $_POST['numero_serie'];
+          $this->maquina_cliente->contacto= $_POST['contacto'];
           $this->maquina_cliente->costo_copia_negro= $_POST['costo_copia_negro'];
           $this->maquina_cliente->costo_copia_color= $_POST['costo_copia_color'];
           $this->maquina_cliente->notas= $_POST['notas'];
